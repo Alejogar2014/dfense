@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecurOS Enterprise - D-Fense Integration V1.0</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="securos-enterprise---d-fense-integration-v1.0">SecurOS Enterprise - D-Fense Integration V1.0</h1>
+<h3 id="introduction">1. Introduction</h3>
+<h4 id="purpose-of-the-api">Purpose of the API</h4>
+<p>The SecurOS Enterprise - D-Fense Integration API allows you to seamlessly integrate SecurOS Enterprise 11.6 with D-Fense Command Control. This guide provides you with the necessary information to interact with the API, enabling you to exchange data and perform actions between these systems.</p>
+<h4 id="key-features">Key Features</h4>
+<ul>
+<li>Secure data exchange between SecurOS Enterprise and D-Fense Integration.</li>
+<li>Real-time integration capabilities.</li>
+<li>Detailed logging and error handling.</li>
+</ul>
+<h4 id="terminology">Terminology</h4>
+<ul>
+<li><strong>API</strong>: Application Programming Interface</li>
+<li><strong>Endpoint</strong>: A specific URL that the API can receive requests at.</li>
+<li><strong>Authentication</strong>: The process of verifying the identity of a user or system.</li>
+</ul>
+<h3 id="getting-started">2. Getting Started</h3>
+<h4 id="authentication">Authentication</h4>
+<p>To access the API, you need to authenticate using Basic Authentication. The default credentials are as follows:</p>
+<ul>
+<li><strong>Username:</strong> iss</li>
+<li><strong>Password:</strong> iss</li>
+</ul>
+<h4 id="making-your-first-api-request">Making Your First API Request</h4>
+<p>To make your first API request, construct an HTTP request using the appropriate endpoint URL, set the necessary headers (including the “Authorization” header for Basic Authentication), and include the data you want to send in the request body. Refer to the API documentation for specific details.</p>
+<pre class=" language-bash"><code class="prism  language-bash">POST /dfense HTTP/1.1
+Host: 127.0.0.1:5000
+Content-Type: application/json
+Authorization: Basic dGVzdDp0ZXN0
+Content-Length: 23
+
+<span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token keyword">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="api-endpoints">3. API Endpoints</h3>
+<h4 id="endpoint-1-dfense">Endpoint 1: <code>/dfense</code></h4>
+<p>This endpoint allows you to send data from D-Fense Integration to SecurOS Enterprise 11.6.</p>
+<h3 id="request-and-response-format">4. Request and Response Format</h3>
+<h4 id="request-headers">Request Headers</h4>
+<ul>
+<li><code>Authorization</code>: <code>Basic Authentication</code>.</li>
+<li><code>Content-Type</code>:  <code>application/json</code></li>
+</ul>
+<h4 id="request-body">Request Body</h4>
+<p>//</p>
+<h4 id="response-format">Response Format</h4>
+<p>The POST response contains the following key components:</p>
+<ul>
+<li>
+<p><strong>data</strong>: This section holds the specific data returned by the API. In this example, the “data” field contains contain the same value sent which represents the data received or processed by the API.</p>
+</li>
+<li>
+<p><strong>status</strong>: The “status” field indicates the status of the API response. In this case, the status is “Received,” indicating that the API has successfully received and processed the request.</p>
+</li>
+<li>
+<p><strong>date</strong>: The “date” field provides a timestamp indicating when the response was generated.</p>
+</li>
+</ul>
+<h3 id="troubleshooting">5. Troubleshooting</h3>
+<h4 id="common-issues-and-solutions">Common Issues and Solutions</h4>
+<p>When using the SecurOS Enterprise - D-Fense Integration V1.0 API, it’s essential to be aware of common issues that may arise during API consumption. Below are some frequent challenges and their solutions:</p>
+<h5 id="issue-1-missing-content-type-header">Issue 1: Missing Content-Type Header</h5>
+<p><strong>Symptom</strong>: You may encounter errors or unexpected behavior when making API requests if the <code>Content-Type</code> header is omitted.</p>
+<p><strong>Solution</strong>: Always ensure that you include the <code>Content-Type</code> header in your requests with the value “application/json” to specify the JSON format for the request body.</p>
+<h5 id="issue-2-missing-basic-authentication">Issue 2: Missing Basic Authentication</h5>
+<p><strong>Symptom</strong>: Forgetting to include Basic Authentication credentials in your API requests will result in authentication errors.</p>
+<p><strong>Solution</strong>: Remember to provide Basic Authentication credentials in the request’s <code>Authorization</code> header. By default, the credentials are “test:test,” encoded as “Basic dGVzdDp0ZXN0”.</p>
+<h5 id="issue-3-incorrect-endpoint-url">Issue 3: Incorrect Endpoint URL</h5>
+<p><strong>Symptom</strong>: Sending requests to the wrong endpoint URL can lead to unexpected errors or incorrect data processing.</p>
+<p><strong>Solution</strong>: Double-check that you are using the correct endpoint URL for your specific API operation.</p>
+<h3 id="connection-scheme">6. Connection scheme</h3>
+<pre class=" language-mermaid"><svg id="mermaid-svg-4dqJYNEZScEgms2w" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="282.875" style="max-width: 365.8125px;" viewBox="0 0 365.8125 282.875"><style>#mermaid-svg-4dqJYNEZScEgms2w{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#000000;}#mermaid-svg-4dqJYNEZScEgms2w .error-icon{fill:#552222;}#mermaid-svg-4dqJYNEZScEgms2w .error-text{fill:#552222;stroke:#552222;}#mermaid-svg-4dqJYNEZScEgms2w .edge-thickness-normal{stroke-width:2px;}#mermaid-svg-4dqJYNEZScEgms2w .edge-thickness-thick{stroke-width:3.5px;}#mermaid-svg-4dqJYNEZScEgms2w .edge-pattern-solid{stroke-dasharray:0;}#mermaid-svg-4dqJYNEZScEgms2w .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-svg-4dqJYNEZScEgms2w .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-svg-4dqJYNEZScEgms2w .marker{fill:#666;stroke:#666;}#mermaid-svg-4dqJYNEZScEgms2w .marker.cross{stroke:#666;}#mermaid-svg-4dqJYNEZScEgms2w svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-svg-4dqJYNEZScEgms2w .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#000000;}#mermaid-svg-4dqJYNEZScEgms2w .cluster-label text{fill:#333;}#mermaid-svg-4dqJYNEZScEgms2w .cluster-label span{color:#333;}#mermaid-svg-4dqJYNEZScEgms2w .label text,#mermaid-svg-4dqJYNEZScEgms2w span{fill:#000000;color:#000000;}#mermaid-svg-4dqJYNEZScEgms2w .node rect,#mermaid-svg-4dqJYNEZScEgms2w .node circle,#mermaid-svg-4dqJYNEZScEgms2w .node ellipse,#mermaid-svg-4dqJYNEZScEgms2w .node polygon,#mermaid-svg-4dqJYNEZScEgms2w .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-svg-4dqJYNEZScEgms2w .node .label{text-align:center;}#mermaid-svg-4dqJYNEZScEgms2w .node.clickable{cursor:pointer;}#mermaid-svg-4dqJYNEZScEgms2w .arrowheadPath{fill:#333333;}#mermaid-svg-4dqJYNEZScEgms2w .edgePath .path{stroke:#666;stroke-width:1.5px;}#mermaid-svg-4dqJYNEZScEgms2w .flowchart-link{stroke:#666;fill:none;}#mermaid-svg-4dqJYNEZScEgms2w .edgeLabel{background-color:white;text-align:center;}#mermaid-svg-4dqJYNEZScEgms2w .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-svg-4dqJYNEZScEgms2w .cluster rect{fill:hsl(210,66.6666666667%,95%);stroke:#26a;stroke-width:1px;}#mermaid-svg-4dqJYNEZScEgms2w .cluster text{fill:#333;}#mermaid-svg-4dqJYNEZScEgms2w .cluster span{color:#333;}#mermaid-svg-4dqJYNEZScEgms2w div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(-160,0%,93.3333333333%);border:1px solid #26a;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-svg-4dqJYNEZScEgms2w:root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-svg-4dqJYNEZScEgms2w flowchart{fill:apa;}</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-A LE-D" id="L-A-D" style="opacity: 1;"><path class="path" d="M86.0546875,54.71875L86.0546875,79.71875L86.0546875,104.71875" marker-end="url(https://stackedit.io/app#arrowhead982)" style="fill:none"></path><defs><marker id="arrowhead982" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-D LE-B" id="L-D-B" style="opacity: 1;"><path class="path" d="M86.0546875,151.4375L86.0546875,189.796875L148.17745253164557,228.15625" marker-end="url(https://stackedit.io/app#arrowhead983)" style="fill:none"></path><defs><marker id="arrowhead983" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-C LE-B" id="L-C-B" style="opacity: 1;"><path class="path" d="M285.9609375,151.4375L285.9609375,189.796875L223.83817246835443,228.15625" marker-end="url(https://stackedit.io/app#arrowhead984)" style="fill:none"></path><defs><marker id="arrowhead984" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-E LE-C" id="L-E-C" style="opacity: 1;"><path class="path" d="M285.9609375,54.71875L285.9609375,79.71875L285.9609375,104.71875" marker-end="url(https://stackedit.io/app#arrowhead985)" style="fill:none"></path><defs><marker id="arrowhead985" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-A-D" class="edgeLabel L-LS-A' L-LE-D"></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(86.0546875,189.796875)" style="opacity: 1;"><g transform="translate(-70.15625,-13.359375)" class="label"><rect rx="0" ry="0" width="140.3125" height="26.71875"></rect><foreignObject width="140.3125" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-D-B" class="edgeLabel L-LS-D' L-LE-B">HTTP POST Request</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(285.9609375,189.796875)" style="opacity: 1;"><g transform="translate(-70.15625,-13.359375)" class="label"><rect rx="0" ry="0" width="140.3125" height="26.71875"></rect><foreignObject width="140.3125" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-C-B" class="edgeLabel L-LS-C' L-LE-B">HTTP POST Request</span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-E-C" class="edgeLabel L-LS-E' L-LE-C"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-A-5813" transform="translate(86.0546875,31.359375)" style="opacity: 1;"><rect rx="5" ry="5" x="-78.0546875" y="-23.359375" width="156.109375" height="46.71875" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-68.0546875,-13.359375)"><foreignObject width="136.109375" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">SecurOS Enterprise</div></foreignObject></g></g></g><g class="node default" id="flowchart-D-5814" transform="translate(86.0546875,128.078125)" style="opacity: 1;"><rect rx="5" ry="5" x="-55.1953125" y="-23.359375" width="110.390625" height="46.71875" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-45.1953125,-13.359375)"><foreignObject width="90.390625" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">UniP License</div></foreignObject></g></g></g><g class="node default" id="flowchart-B-5815" transform="translate(186.0078125,251.515625)" style="opacity: 1;"><rect rx="5" ry="5" x="-130.109375" y="-23.359375" width="260.21875" height="46.71875" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-120.109375,-13.359375)"><foreignObject width="240.21875" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">SecurOS D-Fense Integration V1.0</div></foreignObject></g></g></g><g class="node default" id="flowchart-C-5818" transform="translate(285.9609375,128.078125)" style="opacity: 1;"><rect rx="5" ry="5" x="-38.3828125" y="-23.359375" width="76.765625" height="46.71875" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-28.3828125,-13.359375)"><foreignObject width="56.765625" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">D-Fense</div></foreignObject></g></g></g><g class="node default" id="flowchart-E-5820" transform="translate(285.9609375,31.359375)" style="opacity: 1;"><rect rx="5" ry="5" x="-71.8515625" y="-23.359375" width="143.703125" height="46.71875" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-61.8515625,-13.359375)"><foreignObject width="123.703125" height="26.71875"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Sensor Controller</div></foreignObject></g></g></g></g></g></g></svg></pre>
+</div>
+</body>
+
+</html>

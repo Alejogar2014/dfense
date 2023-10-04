@@ -36,6 +36,7 @@ function isAuth(req, res, next) {
   if (auth === "Basic aXNzOmlzcw==") {
     next();
   } else {
+    log.Write("Access forbidden", "INFO", "dfense.index");
     res.status(401);
     res.send("Access forbidden");
   }
