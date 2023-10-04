@@ -2,8 +2,7 @@
 
 # dependencies
 /node_modules
-/deamon
-deamon/
+/daemon
 /.pnp
 .pnp.js
 
