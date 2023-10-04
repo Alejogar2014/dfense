@@ -10,36 +10,52 @@ const port = process.env.PORT || 5000;
 // !important!
 // you need to install the following libraries |express|[dotenv > if required]
 // or run this command >> npm i express dotenv
+app.use((req,res,next)=>{
+  log.Write(
+    JSON.stringify("New Request method: " + req.method),
+    "INFO",
+    "dfense.index"
+  );
+  log.Write(
+    JSON.stringify("Request received from: " + req.header("User-Agent")),
+    "INFO",
+    "dfense.index"
+  );
+  next()
+})
+
 
 app.get("/", (req, res) => {
   res.send("SecurOS Enterprise - D-Fense Integration V1.0");
+  console.log(req);
 });
-
 
 function isAuth(req, res, next) {
   const auth = req.headers.authorization;
-  if (auth === 'Basic aXNzOmlzcw==') {
+  //iss:iss Base64 => aXNzOmlzcw==
+  if (auth === "Basic aXNzOmlzcw==") {
     next();
   } else {
     res.status(401);
-    res.send('Access forbidden');
+    res.send("Access forbidden");
   }
 }
 
-app.post("/dfense",isAuth, (req, res) => {
-
+app.post("/dfense", isAuth, (req, res) => {
+  
   if (!isObjectEmpty(req.body)) {
     console.log(req);
     let response = {};
     response.data = req.body;
     response.status = "Received";
     response.date = time();
-    log.Write(JSON.stringify(response), "INFO", "dfense.index");
+
+    log.Write(JSON.stringify(response), "DEBUG", "dfense.index");
     res.send(response);
     return;
   }
 
-  res.send("empty");
+  res.send("Application invalid");
 });
 
 const isObjectEmpty = (objectName) => {
@@ -57,5 +73,5 @@ app.listen(port, () =>
 const time = () => {
   let ts = Date.now();
   let date_ob = new Date(ts);
-  return date_ob.toLocaleString()
+  return date_ob.toLocaleString();
 };
